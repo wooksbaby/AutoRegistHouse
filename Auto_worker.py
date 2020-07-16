@@ -7,7 +7,7 @@ import Ad_registration_test as ar
 import time
 import math
 
-task_var = np.flip(Db.task_variable, axis=0)
+task_var = Db.task_variable
 update_col = Db.start_row_num_of_advertisement_checkbox + 1
 
 for turn in task_var:
@@ -68,10 +68,14 @@ for turn in task_var:
     Db.update_cell(update_col, 20, 'TRUE')
     update_col += 1
     ar.resister_continue()
+
+    ## 완료변수 입력
+
 ad.driver.close()
 ar.driver.close()
 
 print('ver.0.2완료')
+
 
 """
 link_send link_detail            홍보확인서이미지변환버튼
