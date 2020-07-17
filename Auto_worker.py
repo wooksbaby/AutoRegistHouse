@@ -2,8 +2,8 @@ import Data_base as Db
 import numpy as np
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import Architecture_done as ad
-import Ad_registration_test as ar
+import Architecture_done as Arch
+import Ad_registration_test as ADre
 import time
 import math
 
@@ -42,12 +42,12 @@ for turn in task_var:
     town_of_address = turn[28]
     bunji_of_address = turn[29]
     road_address = turn[30]
-    ad.web_control()
+    Arch.web_control()
     if np.array_equal(turn, task_var[0]):
-        ad.web_login_gov()
-    ad.issue_architecture_register(road_address, bunji_of_address, name_of_selling, city_of_address, selling_category1,
-                                   selling_category2, dong, ho)
-    owner_data = ad.get_owner_data()
+        Arch.web_login_gov()
+    Arch.issue_architecture_register(road_address, bunji_of_address, name_of_selling, city_of_address, selling_category1,
+                                     selling_category2, dong, ho)
+    owner_data = Arch.get_owner_data()
     owner_name = owner_data[0]  # 소유자 이름
     private_size_raw = owner_data[2]  # 전용면적 사이즈
     private_size_index = private_size_raw.find('.') + 3
@@ -55,24 +55,24 @@ for turn in task_var:
     print(private_size)
     orel = '본인'
     if np.array_equal(turn, task_var[0]):
-        ar.serve_web_control()
+        ADre.serve_web_control()
     del_space_name_of_apt = str(name_of_selling).replace(" ", "")
-    ar.select_option(selling_category1, selling_category2, payment_method, province_of_address, city_of_address,
-                     town_of_address, del_space_name_of_apt, price_of_selling, monthly_price, dong, ho, owner_name,
-                     private_size, orel)
+    ADre.select_option(selling_category1, selling_category2, payment_method, province_of_address, city_of_address,
+                       town_of_address, del_space_name_of_apt, price_of_selling, monthly_price, dong, ho, owner_name,
+                       private_size, orel)
 
     Db.update_cell(update_col, 18, owner_name)
     Db.update_cell(update_col, 13, private_size)
-    Db.update_cell(update_col, 12, ar.suplly_space_m2)
-    Db.update_cell(update_col, 14, ar.suplly_space_py)
+    Db.update_cell(update_col, 12, ADre.suplly_space_m2)
+    Db.update_cell(update_col, 14, ADre.suplly_space_py)
     Db.update_cell(update_col, 20, 'TRUE')
     update_col += 1
-    ar.resister_continue()
+    ADre.resister_continue()
 
     ## 완료변수 입력
 
-ad.driver.close()
-ar.driver.close()
+Arch.driver.close()
+ADre.driver.close()
 
 print('ver.0.2완료')
 
