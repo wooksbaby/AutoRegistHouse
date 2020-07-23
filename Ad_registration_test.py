@@ -27,8 +27,7 @@ suplly_space_m2 = ""
 
 def serve_web_control():  # 웹 컨트롤
 
-    driver.get(
-        "https://member.serve.co.kr/login/login.asp?TargetPage=http://www.serve.co.kr/agency/agreement/service_agree.asp")
+    driver.get("https://member.serve.co.kr/login/login.asp?TargetPage=http://www.serve.co.kr/agency/agreement/service_agree.asp")
     time.sleep(1)
     finder_name_send_key('txtUserID', "a01084851005")
     finder_name_send_key('pwdPassWord', "0738asdf")
@@ -36,6 +35,7 @@ def serve_web_control():  # 웹 컨트롤
     time.sleep(1)
     finder_xpath_click('//*[@id="content"]/div[1]/div[1]/div[1]/div[1]/div[2]/ul/li[4]/a')
     time.sleep(1)
+    print('성공')
 
 
 def selector(select_box_name, option):
