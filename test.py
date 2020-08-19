@@ -36,5 +36,4 @@ def getaptdata(roadcode):
         aptdata.append(unit)
     return aptdata
 
-
-print(getaptdata(411903185015))
+print(getaptdata(411903184002))

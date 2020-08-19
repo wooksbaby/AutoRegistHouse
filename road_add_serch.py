@@ -50,4 +50,4 @@ def getroadadd(keyword):
     return aptdata
 
 
-print(getroadadd('개포동 개포상지리츠빌'))
+print(getroadadd('중동 덕유1단지아파트'))
