@@ -31,7 +31,7 @@ def getroadadd(keyword):
     #print('data is: ' + data)
     soup = BeautifulSoup(data, "xml")
     aptdata = []
-
+    print(soup)
     '''
     a = soup.find("roadAddr")
     b = soup.find("roadAddrPart2")
