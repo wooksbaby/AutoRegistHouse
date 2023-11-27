@@ -26,6 +26,7 @@ import logging
 import Data_base as db
 from selenium.webdriver.support.ui import WebDriverWait as wait
 
+#test23gg23
 
 def serve_web_control():  # 웹 컨트롤
     wait(driver, 10).until(driver.get("https://member.serve.co.kr/login/login.asp?TargetPage=http://www.serve.co.kr/agency/agreement/service_agree.asp"))
